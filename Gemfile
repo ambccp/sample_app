@@ -4,10 +4,14 @@ ruby '1.9.3'
 
 gem 'rails', '4.0.4'
 gem 'pg', '0.15.1'
+gem 'guard-rspec', '2.5.0'
 
 group :development, :test do
   gem 'rspec-rails', '2.13.1'
-end
+  gem 'spork-rails', '4.0.0'
+  gem 'guard-spork', '1.5.0'
+  gem 'childprocess', '0.3.6'
+ end
 
 group :test do
   gem 'selenium-webdriver', '2.35.1'
@@ -28,3 +32,6 @@ end
 group :production do
   gem 'rails_12factor', '0.0.2'
 end
+
+require 'rbconfig'
+gem 'wdm', '>= 0.1.0' if RbConfig::CONFIG['target_os'] =~ /mswin|mingw|cygwin/i 
